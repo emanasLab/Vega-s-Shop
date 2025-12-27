@@ -1,0 +1,26 @@
+name: shop
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.5+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - photos\bag1.jpg
+    - photos\sweater.jpg
+    - photos\ad0.jpg
+    - photos\ad1.jpg
+    - photos\ad2.jpg
