@@ -12,7 +12,11 @@ class IntroPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            Icon(Icons.shopify, size: 85, color: Colors.brown[900]),
+            Icon(
+              Icons.shopify,
+              size: 85,
+              color: const Color.fromARGB(255, 0, 0, 0),
+            ),
             // SizedBox(height: 15),
             //Name
             Text(
@@ -20,7 +24,7 @@ class IntroPage extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 30,
-                color: Colors.brown[900],
+                color: const Color.fromARGB(255, 0, 0, 0),
                 fontFamily: 'Serif',
               ),
             ),
@@ -31,14 +35,14 @@ class IntroPage extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Serif',
                 fontSize: 20,
-                color: const Color.fromARGB(176, 93, 64, 55),
+                color: const Color.fromARGB(66, 0, 0, 0),
               ),
             ),
             //button
             SizedBox(height: 50),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.brown,
+                backgroundColor: Colors.grey[600],
                 fixedSize: const Size(200, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),

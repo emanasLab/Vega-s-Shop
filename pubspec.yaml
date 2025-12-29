@@ -20,6 +20,9 @@ flutter:
   uses-material-design: true
   assets:
     - photos\bag1.jpg
+    - photos\bag2.jpg
+    - photos\bag3.jpg
+    - photos\bag4.jpg
     - photos\sweater.jpg
     - photos\ad0.jpg
     - photos\ad1.jpg

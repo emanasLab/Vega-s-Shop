@@ -5,22 +5,28 @@ import 'package:shop/Components/product.dart';
 class StockProvider extends ChangeNotifier {
   final List<Product> newArrivals = [
     Product(
-      name: "Polene Bag",
-      description: "Stylish and Trendy Bag!",
-      price: 99.00,
+      name: "Suede Bag",
+      description: "Elegant Leather Bag!",
+      price: 20.00,
       imagePath: "photos/bag1.jpg",
     ),
     Product(
-      name: "Leather Bag",
-      description: "Elegant Leather Bag!",
-      price: 20.00,
+      name: "Wool Sweater",
+      description: "Perfect for cold Uni days",
+      price: 52.99,
       imagePath: "photos/sweater.jpg",
+    ),
+    Product(
+      name: "Polene Bag",
+      description: "Stylish and Trendy Bag!",
+      price: 99.00,
+      imagePath: "photos/bag3.jpg",
     ),
     Product(
       name: "Casual Bag",
       description: "Perfect for Daily Use!",
       price: 80.00,
-      imagePath: "photos/bag3.jpg",
+      imagePath: "photos/bag2.jpg",
     ),
     Product(
       name: "Boho Bag",

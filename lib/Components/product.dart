@@ -2,7 +2,7 @@ class Product {
   final String name;
   final String description;
   final double price;
-  int qte = 1;
+  int qte = 0;
   final String imagePath;
 
   Product({

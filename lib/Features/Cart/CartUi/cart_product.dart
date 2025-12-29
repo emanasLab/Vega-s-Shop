@@ -32,8 +32,8 @@ class CartProduct extends StatelessWidget {
 
             //Name and details\
             SizedBox(
-              width: 300,
               height: 150,
+              width: 300,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

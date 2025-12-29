@@ -6,20 +6,20 @@ class CartProvider extends ChangeNotifier {
   //Cart  items starts vide
   final List<Product> _cartItems = [];
   List<Product> get cartItems => _cartItems;
+  final double total = 0;
 
   void addToCart(Product aProduct, bool found, int qte) {
     if (_cartItems.any((element) => element == aProduct)) {
       found = true;
-      aProduct.qte++;
-      notifyListeners();
     } else {
       _cartItems.add(aProduct);
-      notifyListeners();
     }
+    aProduct.qte++;
+    notifyListeners();
   }
 
   void removeFromCart(Product rProduct) {
-    rProduct.qte = 1;
+    rProduct.qte = 0;
     _cartItems.removeAt(_cartItems.indexOf(rProduct));
     notifyListeners();
   }
@@ -34,5 +34,9 @@ class CartProvider extends ChangeNotifier {
       prod.qte--;
       notifyListeners();
     }
+  }
+
+  double calculateTotal(List<Product> cartItems) {
+    return _cartItems.fold(0, (sum, item) => sum + item.price * item.qte);
   }
 }

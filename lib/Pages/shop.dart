@@ -47,102 +47,102 @@ class ShopPage extends StatelessWidget {
       ),
 
       body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 10),
-              //ads section
-              SizedBox(
-                height: 150,
-                child: ListView.builder(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 10),
+            //ads section
+            SizedBox(
+              height: 150,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return Ad(
+                    path: 'photos/ad$index.jpg',
+                  ); //i is the add number, which defines it's path (in imgs i have ad0.jpg,...)
+                },
+              ),
+            ),
+
+            SizedBox(height: 10),
+
+            //New Arrivals
+            //title
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(left: 20),
+              child: Text(
+                'New Arrivals',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Georgia',
+                ),
+              ),
+            ),
+            //list
+            Container(
+              height: 350,
+              padding: EdgeInsets.only(left: 20),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Consumer<StockProvider>(
+                builder: (context, stock, child) => ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 3,
+                  itemCount: stock.newArrivals.length,
                   itemBuilder: (context, index) {
-                    return Ad(
-                      path: 'photos/ad$index.jpg',
-                    ); //i is the add number, which defines it's path (in imgs i have ad0.jpg,...)
+                    final p = stock.newArrivals[index];
+                    return Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: ShopProduct(product: p),
+                    );
                   },
+                  separatorBuilder: (context, index) => SizedBox(width: 10),
                 ),
               ),
+            ),
+            SizedBox(height: 20),
 
-              SizedBox(height: 10),
-
-              //New Arrivals
-              //title
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  'New Arrivals',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Georgia',
-                  ),
+            //For You
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(left: 20),
+              child: Text(
+                'For You',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Georgia',
                 ),
               ),
-              //list
-              Container(
-                height: 350,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Consumer<StockProvider>(
-                  builder: (context, stock, child) => ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: stock.newArrivals.length,
-                    itemBuilder: (context, index) {
-                      final p = stock.newArrivals[index];
-                      return Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: ShopProduct(product: p),
-                      );
-                    },
-                    separatorBuilder: (context, index) => SizedBox(width: 10),
-                  ),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 20),
+              height: 350,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Consumer<StockProvider>(
+                builder: (context, stock1, child) => ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: stock1.forYou.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: ShopProduct(product: stock1.forYou[index]),
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(width: 10),
                 ),
               ),
-              SizedBox(height: 20),
-
-              //For You
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  'For You',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Georgia',
-                  ),
-                ),
-              ),
-              Container(
-                height: 350,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Consumer<StockProvider>(
-                  builder: (context, stock1, child) => ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: stock1.forYou.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: ShopProduct(product: stock1.forYou[index]),
-                      );
-                    },
-                    separatorBuilder: (context, index) => SizedBox(width: 10),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-            ],
-          ),
+            ),
+            SizedBox(height: 20),
+          ],
         ),
       ),
     );

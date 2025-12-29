@@ -102,10 +102,24 @@ class ShopProduct extends StatelessWidget {
                     foregroundColor: Colors.white70, // Text Color
                   ),
                   onPressed: () {
+                    print(product.qte);
                     //add to cart function from provider to insure the function will notifyListeners
                     //if product already in cart just add quantity
-
                     //else add new product to cart
+                    if (product.qte == 0) {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          content: Text('Item was added Successfully!'),
+                          actions: [
+                            MaterialButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text("Ok"),
+                            ),
+                          ],
+                        ),
+                      );
+                    }
                     context.read<CartProvider>().addToCart(
                       product,
                       found,
