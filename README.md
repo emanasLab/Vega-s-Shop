@@ -1,7 +1,7 @@
 # shop
 
 A new Flutter project.
-Hello Abdu🙂, This is a mini ecommerce app focuced on how to use providers and integrate APIs and organize The data layer
+This is a mini ecommerce app focuced on how to use providers and integrate APIs and organize The data layer
 Thus, i made it as simple as this, a shoping page where there's items we can add to cart,
 and cart page to manage the quantity and finally pass the order and move to payment.
 
