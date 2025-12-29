@@ -30,22 +30,26 @@ class StockProvider extends ChangeNotifier {
     ),
   ];
 
-  // final List<Product> forYou = [
-  //   Product(
-  //     name: name,
-  //     description: description,
-  //     price: price,
-  //     qte: qte,
-  //     imagePath: imagePath,
-  //   ),
-  //   Product(
-  //     name: name,
-  //     description: description,
-  //     price: price,
-  //     qte: qte,
-  //     imagePath: imagePath,
-  //   ),
-  // ];
+  final List<Product> forYou = [
+    Product(
+      name: "Brown Balerina",
+      description: "Brown Balerina for daily wear",
+      price: 20.00,
+      imagePath: "photos/shoe0.jpg",
+    ),
+    Product(
+      name: "Pink Cute Sweater",
+      description: "The pink sweater you need for your favorite days",
+      price: 29.99,
+      imagePath: "photos/sweater0.jpg",
+    ),
+    Product(
+      name: "Grey Long Coat",
+      description: "Long Coat of wool you need for your cold days",
+      price: 59.99,
+      imagePath: "photos/coat0.jpg",
+    ),
+  ];
 
   Product getProduct(int i) {
     return newArrivals[i];

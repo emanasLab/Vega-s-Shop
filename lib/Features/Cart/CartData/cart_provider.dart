@@ -19,8 +19,8 @@ class CartProvider extends ChangeNotifier {
   }
 
   void removeFromCart(Product rProduct) {
+    rProduct.qte = 1;
     _cartItems.removeAt(_cartItems.indexOf(rProduct));
-
     notifyListeners();
   }
 

@@ -10,30 +10,30 @@ class CartProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
-      //width: double.infinity,
       margin: EdgeInsets.only(left: 20, right: 20, top: 5),
       child: Card(
-        color: const Color.fromARGB(255, 17, 16, 16),
+        color: const Color.fromARGB(255, 255, 255, 255),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             //image
-            Expanded(
-              child: Container(
-                height: 150,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                    image: AssetImage(item.imagePath), //'photos/bag1.jpg'),
-                    fit: BoxFit.cover,
-                  ),
+            Container(
+              height: 150,
+              width: 150,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  image: AssetImage(item.imagePath), //'photos/bag1.jpg'),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
+
             //Name and details\
-            Expanded(
+            SizedBox(
+              width: 300,
+              height: 150,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -53,8 +53,31 @@ class CartProduct extends StatelessWidget {
                         style: TextStyle(fontSize: 16),
                       ),
                       trailing: IconButton(
-                        onPressed: () =>
-                            context.read<CartProvider>().removeFromCart(item),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              content: Text(
+                                'Are you sure of removing this item from the Cart?',
+                              ),
+                              actions: [
+                                MaterialButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text("No"),
+                                ),
+                                MaterialButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    return context
+                                        .read<CartProvider>()
+                                        .removeFromCart(item);
+                                  },
+                                  child: Text("Yes"),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
                         icon: Icon(Icons.delete_outline),
                       ),
                     ),

@@ -13,7 +13,7 @@ class ShopProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 300,
       width: 200,
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0xFFA4A4A4), width: 1.0),
@@ -58,7 +58,6 @@ class ShopProduct extends StatelessWidget {
                 ),
                 //description
                 Container(
-                  height: 60,
                   alignment: Alignment.topLeft,
                   padding: EdgeInsets.only(left: 6),
                   margin: EdgeInsets.only(right: 5, left: 5, bottom: 5),
@@ -74,7 +73,7 @@ class ShopProduct extends StatelessWidget {
           //price + add to cart cart button
           Container(
             padding: EdgeInsets.only(left: 8),
-            height: 45,
+            //height: 45,
             decoration: BoxDecoration(
               color: const Color.fromARGB(79, 158, 158, 158),
               shape: BoxShape.rectangle,

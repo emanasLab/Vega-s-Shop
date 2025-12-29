@@ -85,7 +85,7 @@ class ShopPage extends StatelessWidget {
               ),
               //list
               Container(
-                height: 400,
+                height: 350,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 255, 255, 255),
                   borderRadius: BorderRadius.circular(10),
@@ -121,19 +121,19 @@ class ShopPage extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 400,
+                height: 350,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 255, 255, 255),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Consumer<StockProvider>(
-                  builder: (context, stock, child) => ListView.separated(
+                  builder: (context, stock1, child) => ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemCount: stock.newArrivals.length,
+                    itemCount: stock1.forYou.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: ShopProduct(product: stock.newArrivals[index]),
+                        child: ShopProduct(product: stock1.forYou[index]),
                       );
                     },
                     separatorBuilder: (context, index) => SizedBox(width: 10),
